@@ -42,6 +42,18 @@ Create a production build:
 npm run build
 ```
 
+## Previewing a Production build
+
+To preview a production build locally, use the [Netlify CLI](https://cli.netlify.com):
+
+```bash
+npx netlify-cli serve
+```
+
+```bash
+npm run build
+```
+
 ## Deployment
 
 This template is configured for deployment to Netlify.
