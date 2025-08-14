@@ -4,3 +4,10 @@ publish = "build/client"
 
 [dev]
 command = "react-router dev"
+
+[functions]
+included_files = [
+    "node_modules/@react-router/**/dist/**",
+    "node_modules/react-router/dist/**",
+    "node_modules/turbo-stream/dist/**"
+  ]
