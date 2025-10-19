@@ -10,6 +10,17 @@ export function meta({ }: Route.MetaArgs) {
   ];
 }
 
+// Example middleware that adds a custom header
+const customDateHeaderMiddleware: Route.MiddlewareFunction = async (
+  _request,
+  next,
+) => {
+  const response = await next();
+  response.headers.set("X-Current-Date", new Date().toUTCString());
+  return response;
+};
+
+// Example middleware that uses Netlify context
 const logMiddleware: Route.MiddlewareFunction = async ({
   request,
   context,
@@ -21,7 +32,10 @@ const logMiddleware: Route.MiddlewareFunction = async ({
   );
 };
 
-export const middleware: Route.MiddlewareFunction[] = [logMiddleware];
+export const middleware: Route.MiddlewareFunction[] = [
+  customDateHeaderMiddleware,
+  logMiddleware,
+];
 
 export default function Home() {
   return <Welcome />;
