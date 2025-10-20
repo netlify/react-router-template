@@ -3,7 +3,8 @@ import autoprefixer from "autoprefixer";
 import tailwindcss from "tailwindcss";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
-import netlifyPlugin from "@netlify/vite-plugin-react-router";
+import netlifyReactRouter from "@netlify/vite-plugin-react-router";
+import netlify from "@netlify/vite-plugin";
 
 export default defineConfig({
   css: {
@@ -11,5 +12,5 @@ export default defineConfig({
       plugins: [tailwindcss, autoprefixer],
     },
   },
-  plugins: [reactRouter(), tsconfigPaths(), netlifyPlugin()],
+  plugins: [reactRouter(), tsconfigPaths(), netlifyReactRouter(), netlify()],
 });
